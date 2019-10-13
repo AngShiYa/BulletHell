@@ -21,7 +21,6 @@ public class EnemyAttackSpread : MonoBehaviour {
         float offset = (start * 2) / (numProjectile - 1);
         for (int i = 0; i < numProjectile; ++i) {
             velocities[i] = new Vector2(start, speed);
-            Debug.Log(velocities[i]);
             start -= offset;
         }
     }

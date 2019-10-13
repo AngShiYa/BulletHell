@@ -23,7 +23,9 @@ public class Bullet : MonoBehaviour {
         }
     }
 
-    public void setVelocity(float velocity) {
-        rb2d.velocity = new Vector2(0, velocity);
+    public void setVelocity(Vector2 velocity) {
+        rb2d.velocity = velocity;
+        var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+        rb2d.MoveRotation(angle - 90);
     }
 }

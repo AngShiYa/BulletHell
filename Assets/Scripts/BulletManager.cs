@@ -30,7 +30,7 @@ public class BulletManager : MonoBehaviour {
 
     public void returnBullet(GameObject bullet) {
         if (bullet.tag == "Bullet") {
-            bullet.GetComponent<Bullet>().setVelocity(0);
+            bullet.GetComponent<Bullet>().setVelocity(Vector2.zero);
             bullet.transform.position = offScreen;
             bullets.Enqueue(bullet);
         } else {
