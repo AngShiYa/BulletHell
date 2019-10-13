@@ -40,7 +40,23 @@ public class PlayerController : MonoBehaviour {
         if (isMouseDown) {
             Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 offset = position - clickPosition;
-            transform.position = currentPosition + offset;
+            Vector2 screenPosition = Camera.main.WorldToScreenPoint(currentPosition + offset);
+            if (screenPosition.x < 0) {
+                screenPosition.x = 0;
+            }
+            if (screenPosition.x > Screen.width) {
+                screenPosition.x = Screen.width;
+            }
+
+            if (screenPosition.y < 0) {
+                screenPosition.y = 0;
+            }
+            if (screenPosition.y > Screen.height) {
+                screenPosition.y = Screen.height;
+            }
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+            worldPosition.z = 0;
+            transform.position = worldPosition;
         }
     }
 
