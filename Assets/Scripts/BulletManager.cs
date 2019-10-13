@@ -7,15 +7,13 @@ public class BulletManager : MonoBehaviour {
     public Vector3 offScreen = new Vector3(-10, 0, 0);
     public int numBullets = 100;
 
-    private GameObject[] bullets; 
-    private int nextBulletIndex;
+    private Queue<GameObject> bullets; 
 
     // Start is called before the first frame update
     void Start() {
-        bullets = new GameObject[numBullets];
-        nextBulletIndex = 0;
+        bullets = new Queue<GameObject>();
         for (int i = 0; i < numBullets; i++) {
-            bullets[i] = Instantiate(bullet, offScreen, Quaternion.identity);
+            bullets.Enqueue(Instantiate(bullet, offScreen, Quaternion.identity));
         }
     }
 
@@ -25,7 +23,13 @@ public class BulletManager : MonoBehaviour {
     }
 
     public GameObject getBullet() {
-        nextBulletIndex %= numBullets;
-        return bullets[nextBulletIndex++];
+        return bullets.Dequeue();
+    }
+
+    public void returnBullet(GameObject bullet) {
+        if (bullet.tag == "Bullet") {
+            bullets.Enqueue(bullet);
+        }
+        Debug.Log("GameObject is not tagged as Bullet");
     }
 }
