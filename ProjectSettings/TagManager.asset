@@ -7,6 +7,7 @@ TagManager:
   - WorldBound
   - Bullet
   - Background
+  - Enemy
   layers:
   - Default
   - TransparentFX
