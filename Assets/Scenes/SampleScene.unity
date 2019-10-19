@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 380217870}
   - component: {fileID: 380217869}
   - component: {fileID: 380217868}
+  - component: {fileID: 380217871}
   m_Layer: 0
   m_Name: LeftBound
   m_TagString: WorldBound
@@ -343,6 +344,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &380217871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380217866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce482b57e51df14b8100fb51ff545f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletManager: {fileID: 312903489}
 --- !u!1 &483937407
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +369,7 @@ GameObject:
   - component: {fileID: 483937411}
   - component: {fileID: 483937410}
   - component: {fileID: 483937409}
+  - component: {fileID: 483937412}
   m_Layer: 0
   m_Name: BottomBound
   m_TagString: WorldBound
@@ -472,6 +487,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &483937412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483937407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce482b57e51df14b8100fb51ff545f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletManager: {fileID: 312903489}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +770,7 @@ GameObject:
   - component: {fileID: 1305019131}
   - component: {fileID: 1305019133}
   - component: {fileID: 1305019130}
+  - component: {fileID: 1305019134}
   m_Layer: 0
   m_Name: TopBound
   m_TagString: WorldBound
@@ -859,6 +888,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1305019134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305019129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce482b57e51df14b8100fb51ff545f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletManager: {fileID: 312903489}
 --- !u!1 &1344405781
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +997,7 @@ GameObject:
   - component: {fileID: 1457624407}
   - component: {fileID: 1457624406}
   - component: {fileID: 1457624405}
+  - component: {fileID: 1457624408}
   m_Layer: 0
   m_Name: RightBound
   m_TagString: WorldBound
@@ -1072,6 +1115,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1457624408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457624403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce482b57e51df14b8100fb51ff545f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletManager: {fileID: 312903489}
 --- !u!1 &1752352254
 GameObject:
   m_ObjectHideFlags: 0

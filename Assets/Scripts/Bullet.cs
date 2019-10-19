@@ -18,9 +18,7 @@ public class Bullet : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "WorldBound") {
-            bulletManager.returnBullet(gameObject);
-        } else if (other.tag == "Enemy") {
+        if (other.tag == "Enemy") {
             Debug.Log("HIT ENEMY");
             other.GetComponent<Enemy>().getHit(1);
             bulletManager.returnBullet(gameObject);
