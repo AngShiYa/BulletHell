@@ -15,6 +15,7 @@ public class BulletManager : MonoBehaviour {
         for (int i = 0; i < numBullets; i++) {
             GameObject newBullet = Instantiate(bullet, offScreen, Quaternion.identity);
             newBullet.GetComponent<Bullet>().bulletManager = this;
+            newBullet.SetActive(false);
             bullets.Enqueue(newBullet);
         }
     }
@@ -25,13 +26,16 @@ public class BulletManager : MonoBehaviour {
     }
 
     public GameObject getBullet() {
-        return bullets.Dequeue();
+        GameObject nextBullet = bullets.Dequeue();
+        nextBullet.SetActive(true);
+        return nextBullet;
     }
 
     public void returnBullet(GameObject bullet) {
         if (bullet.tag == "Bullet") {
             bullet.GetComponent<Bullet>().setVelocity(Vector2.zero);
             bullet.transform.position = offScreen;
+            bullet.SetActive(false);
             bullets.Enqueue(bullet);
         } else {
             Debug.Log("GameObject is not tagged as Bullet");

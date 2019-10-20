@@ -14,6 +14,10 @@ public class Enemy : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("COLLIDE" + other.name);
+        if (other.tag == "Bullet") {
+            getHit(1);
+            // TODO combine EnemyAttack and EnemyMove to this class
+            // Use inheritance
+        }
     }
 }
