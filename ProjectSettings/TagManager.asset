@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - WorldBound
-  - Bullet
   - Background
   - Enemy
+  - EnemyBullet
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

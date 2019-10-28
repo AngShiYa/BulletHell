@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Bullet") {
+        if (other.tag == "PlayerBullet") {
             getHit(1);
             bulletManager.returnBullet(other.gameObject);
         }
@@ -65,9 +65,9 @@ public class Enemy : MonoBehaviour {
 
     private void attack() {
         for (int i = 0; i < velocities.Length; ++i) {
-            GameObject bullet = bulletManager.getBullet();
+            GameObject bullet = bulletManager.getBullet(1);
             bullet.transform.position = transform.position;
-            bullet.GetComponent<Bullet>().setVelocity(velocities[i]);
+            bullet.GetComponent<Bullet>().velocity = velocities[i];
         }
     }
 }

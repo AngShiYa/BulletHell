@@ -19,7 +19,7 @@ public class Bound : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Bullet") {
+        if (other.tag == "PlayerBullet" || other.tag == "EnemyBullet") {
             bulletManager.returnBullet(other.gameObject);
         }
     }

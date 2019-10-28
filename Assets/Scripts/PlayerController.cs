@@ -61,8 +61,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void attack() {
-        GameObject bullet = bulletManager.getBullet();
+        GameObject bullet = bulletManager.getBullet(0);
         bullet.transform.position = transform.position;
-        bullet.GetComponent<Bullet>().setVelocity(new Vector2(0, 10));
+        bullet.GetComponent<Bullet>().velocity = new Vector2(0, 10);
     }
 }

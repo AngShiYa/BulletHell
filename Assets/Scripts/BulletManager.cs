@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletManager : MonoBehaviour {
-    public GameObject bullet;
+    public GameObject[] bullets;
     public Vector3 offScreen = new Vector3(-10, 0, 0);
     public int numBullets = 100;
 
-    private Queue<GameObject> bullets; 
+    Queue<GameObject>[] bulletPools;
 
     // Start is called before the first frame update
     void Start() {
-        bullets = new Queue<GameObject>();
-        for (int i = 0; i < numBullets; i++) {
-            GameObject newBullet = Instantiate(bullet, offScreen, Quaternion.identity);
-            newBullet.GetComponent<Bullet>().bulletManager = this;
-            newBullet.SetActive(false);
-            bullets.Enqueue(newBullet);
+        bulletPools = new Queue<GameObject>[bullets.Length];
+        for (int i = 0; i < bullets.Length; i++) {
+            bulletPools[i] = new Queue<GameObject>();
+            for (int j = 0; j < numBullets; j++) {
+                GameObject newPlayerBullet = Instantiate(bullets[i], offScreen, Quaternion.identity);
+                Bullet bullet = newPlayerBullet.GetComponent<Bullet>();
+                bullet.bulletManager = this;
+                bullet.origin = i;
+                newPlayerBullet.SetActive(false);
+                bulletPools[i].Enqueue(newPlayerBullet);
+            }
         }
     }
 
@@ -25,20 +30,17 @@ public class BulletManager : MonoBehaviour {
         
     }
 
-    public GameObject getBullet() {
-        GameObject nextBullet = bullets.Dequeue();
+    public GameObject getBullet(int index) {
+        GameObject nextBullet = bulletPools[index].Dequeue();
         nextBullet.SetActive(true);
         return nextBullet;
     }
 
-    public void returnBullet(GameObject bullet) {
-        if (bullet.tag == "Bullet") {
-            bullet.GetComponent<Bullet>().setVelocity(Vector2.zero);
-            bullet.transform.position = offScreen;
-            bullet.SetActive(false);
-            bullets.Enqueue(bullet);
-        } else {
-            Debug.Log("GameObject is not tagged as Bullet");
-        }
+    public void returnBullet(GameObject obj) {
+        Bullet bullet = obj.GetComponent<Bullet>();
+        bullet.velocity = Vector2.zero;
+        obj.transform.position = offScreen;
+        obj.SetActive(false);
+        bulletPools[bullet.origin].Enqueue(obj);
     }
 }

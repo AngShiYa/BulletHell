@@ -3,23 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
-
-    private Rigidbody2D rb2d;
-    public BulletManager bulletManager;
-
-    private Vector2 velocity;
+    public BulletManager bulletManager { get; set; }
+    public int origin { get; set; }
+    public Vector2 velocity { get; set; }
 
     // Start is called before the first frame update
     void Start() {
-        rb2d = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update() {
         transform.Translate(velocity * Time.deltaTime);
-    }
-
-    public void setVelocity(Vector2 velocity) {
-        this.velocity = velocity;
     }
 }

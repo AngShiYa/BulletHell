@@ -197,9 +197,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce38591578f94a458198bbf6bcee796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5313374129315810147, guid: 04f316cf4bfbc4d4294088dfe36858d3, type: 3}
+  bullets:
+  - {fileID: 5313374129315810147, guid: 04f316cf4bfbc4d4294088dfe36858d3, type: 3}
+  - {fileID: 3253478523630189627, guid: 89433e0ef35f2994993328141a6926c2, type: 3}
   offScreen: {x: -10, y: 0, z: 0}
-  numBullets: 1000
+  numBullets: 10000
 --- !u!4 &312903490
 Transform:
   m_ObjectHideFlags: 0
