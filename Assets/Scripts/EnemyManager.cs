@@ -15,8 +15,8 @@ public class EnemyManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (timer > spawnInterval) {
-            EnemyAttackSpread eas = Instantiate(enemyPrefab, spawnLocation, Quaternion.identity).GetComponent<EnemyAttackSpread>();
-            eas.bulletManager = bulletManager;
+            Enemy enemy = Instantiate(enemyPrefab, spawnLocation, Quaternion.identity).GetComponent<Enemy>();
+            enemy.bulletManager = bulletManager;
             timer = 0;
         } else {
             timer += Time.deltaTime;

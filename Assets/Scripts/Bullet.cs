@@ -19,14 +19,6 @@ public class Bullet : MonoBehaviour {
         transform.Translate(velocity * Time.deltaTime);
     }
 
-    /*void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Enemy") {
-            Debug.Log("HIT ENEMY");
-            other.GetComponent<Enemy>().getHit(1);
-            bulletManager.returnBullet(gameObject);
-        }
-    }*/
-
     public void setVelocity(Vector2 velocity) {
         this.velocity = velocity;
     }
