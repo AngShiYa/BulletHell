@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletManager : MonoBehaviour {
-    public GameObject[] bullets;
+    public GameObject[] bulletPrefabs;
     public Vector3 offScreen = new Vector3(-10, 0, 0);
     public int numBullets = 100;
 
-    Queue<GameObject>[] bulletPools;
+    private Queue<GameObject>[] bulletPools;
 
     // Start is called before the first frame update
     void Start() {
-        bulletPools = new Queue<GameObject>[bullets.Length];
-        for (int i = 0; i < bullets.Length; i++) {
+        bulletPools = new Queue<GameObject>[bulletPrefabs.Length];
+        for (int i = 0; i < bulletPrefabs.Length; i++) {
             bulletPools[i] = new Queue<GameObject>();
             for (int j = 0; j < numBullets; j++) {
-                GameObject newPlayerBullet = Instantiate(bullets[i], offScreen, Quaternion.identity);
+                GameObject newPlayerBullet = Instantiate(bulletPrefabs[i], offScreen, Quaternion.identity);
                 Bullet bullet = newPlayerBullet.GetComponent<Bullet>();
                 bullet.bulletManager = this;
                 bullet.origin = i;

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    public BulletManager bulletManager;
+    public EnemyManager enemyManager { get; set; }
+    public BulletManager bulletManager { get; set; }
+    public int origin { get; set; }
 
     [Header("Stats")]
     public int health;
@@ -37,7 +39,7 @@ public class Enemy : MonoBehaviour {
     public void getHit(int damage) {
         health -= damage;
         if (health <= 0) {
-            Destroy(gameObject);
+            enemyManager.returnEnemy(gameObject);
         }
     }
 

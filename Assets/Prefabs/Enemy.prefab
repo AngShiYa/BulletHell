@@ -132,10 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a282bab6f09064bbf20c69196e6da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletManager: {fileID: 0}
   health: 5
   direction: {x: -2, y: -1}
-  cooldown: 2
+  cooldown: 0.1
   speed: -10
   numProjectile: 3
   spreadAngle: 45
