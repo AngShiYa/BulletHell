@@ -1,61 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Enemy : MonoBehaviour {
-
-    public EnemyManager enemyManager { get; set; }
-    public BulletManager bulletManager { get; set; }
-    public int origin { get; set; }
-
-    [Header("Stats")]
-    public int health;
-
+public class Enemy : BaseEnemy {
     [Header("Movement")]
     public Vector2 direction;
 
     [Header("Attack Pattern")]
-    public float cooldown = 2;
-    public float speed = -10;
-    public int numProjectile = 3;
-    public float spreadAngle = 45;
+    public float cooldown;
+    public float speed;
+    public int numProjectile;
+    public float spreadAngle;
     
-    private float timer;
     private Vector2[] velocities;
 
     void Start() {
-        initializeAttackPattern();
+        initialize();
     }
 
-    void Update() {
-        move();
-        timer += Time.deltaTime;
-        if (timer > cooldown) {
-            attack();
-            timer = 0;
-        }
-    }
-
-    public void getHit(int damage) {
-        health -= damage;
-        if (health <= 0) {
-            enemyManager.returnEnemy(gameObject);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "PlayerBullet") {
-            getHit(1);
-            bulletManager.returnBullet(other.gameObject);
-        }
-    }
-
-    private void move() {
-        transform.Translate(direction * Time.deltaTime);
-    }
-
-    private void initializeAttackPattern() {
+    public override void initialize() {
         timer = 0;
+        currentHealth = maxHealth;
+
         velocities = new Vector2[numProjectile];
         float start = speed * (spreadAngle / 90.0f);
         float offset = (start * 2) / (numProjectile - 1);
@@ -65,11 +29,19 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    private void attack() {
-        for (int i = 0; i < velocities.Length; ++i) {
-            GameObject bullet = bulletManager.getBullet(1);
-            bullet.transform.position = transform.position;
-            bullet.GetComponent<Bullet>().velocity = velocities[i];
+    protected override void move() {
+        transform.Translate(direction * Time.deltaTime);
+    }
+
+    protected override void attack() {
+        if (timer > cooldown) {
+            for (int i = 0; i < velocities.Length; ++i) {
+                Bullet bullet = bulletManager.getBullet(1).GetComponent<Bullet>();
+                bullet.transform.position = transform.position;
+                bullet.velocity = velocities[i];
+                bullet.damage = 1;
+            }
+            timer = 0;
         }
     }
 }

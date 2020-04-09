@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!58 &393998377451373815
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3253478523630189627}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!1001 &7249186695466743640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76,7 +92,34 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 68ef8e76f0fb671438a4aa370bce4245,
+      objectReference: {fileID: 21300000, guid: 8f43b40eb43633747b524018c0ba8409,
         type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 5313374129315810151, guid: 04f316cf4bfbc4d4294088dfe36858d3,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313374129315810151, guid: 04f316cf4bfbc4d4294088dfe36858d3,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313374129315810151, guid: 04f316cf4bfbc4d4294088dfe36858d3,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313374129315810151, guid: 04f316cf4bfbc4d4294088dfe36858d3,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.5882353
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -1794732356002953195, guid: 04f316cf4bfbc4d4294088dfe36858d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 04f316cf4bfbc4d4294088dfe36858d3, type: 3}
+--- !u!1 &3253478523630189627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5313374129315810147, guid: 04f316cf4bfbc4d4294088dfe36858d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7249186695466743640}
+  m_PrefabAsset: {fileID: 0}

@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public BulletManager bulletManager;
     public float cooldown = 0.1f;
+    public Vector3 bulletOffset = new Vector3(0, 0.5f, 0);
 
     private bool isMouseDown;
     private Vector2 clickPosition;
@@ -61,8 +60,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void attack() {
-        GameObject bullet = bulletManager.getBullet(0);
-        bullet.transform.position = transform.position;
-        bullet.GetComponent<Bullet>().velocity = new Vector2(0, 10);
+        Bullet bullet = bulletManager.getBullet(0).GetComponent<Bullet>();
+        bullet.transform.position = transform.position + bulletOffset;
+        bullet.velocity = new Vector2(0, 10);
+        bullet.damage = 1; // To change when player has stats
     }
 }
